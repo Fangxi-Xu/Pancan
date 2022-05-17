@@ -96,29 +96,29 @@ LOG=$WORK/QIIME_log_$TM.txt
 #  --o-filtered-table table-nonchimeric.qza
 
 #taxonomy classification of query sequences
-/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime feature-classifier classify-consensus-blast \
- --i-query non_chimeric_seqs.qza \
- --i-reference-reads UNITE_ref_seqs.qza \
- --i-reference-taxonomy UNITE_ref_taxonomy.qza \
- --o-classification taxonomy.qza
+#/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime feature-classifier classify-consensus-blast \
+# --i-query non_chimeric_seqs.qza \
+# --i-reference-reads UNITE_ref_seqs.qza \
+# --i-reference-taxonomy UNITE_ref_taxonomy.qza \
+# --o-classification taxonomy.qza
 
-/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime metadata tabulate \
- --m-input-file taxonomy.qza \
- --o-visualization taxonomy.qzv
+#/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime metadata tabulate \
+# --m-input-file taxonomy.qza \
+# --o-visualization taxonomy.qzv
 
 #taxa barplot
-/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime taxa barplot \
-  --i-table table-nonchimeric.qza \
-  --i-taxonomy taxonomy.qza \
-  --m-metadata-file metadata_w_ctrls.txt \
-  --o-visualization taxa-bar-plots.qzv
+#/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime taxa barplot \
+#  --i-table table-nonchimeric.qza \
+#  --i-taxonomy taxonomy.qza \
+#  --m-metadata-file metadata_w_ctrls.txt \
+#  --o-visualization taxa-bar-plots.qzv
 
 #covert to biom format
-/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime tools export \
---input-path table-nonchimeric.qza \
---output-path biom_table
+#/scratch/work/public/singularity/run-qiime2-2021.11.0.bash qiime tools export \
+#--input-path table-nonchimeric.qza \
+#--output-path biom_table
 
-cd biom_table
-/scratch/work/public/singularity/run-qiime2-2021.11.0.bash biom convert -i feature-table.biom -o feature-table.tsv --to-tsv
+#cd biom_table
+#/scratch/work/public/singularity/run-qiime2-2021.11.0.bash biom convert -i feature-table.biom -o feature-table.tsv --to-tsv
 
 
