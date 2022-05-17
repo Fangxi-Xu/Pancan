@@ -25,7 +25,7 @@ is.factor(sample_data(phylo_tissue)$Description)
 levels(sample_data(phylo_tissue)$Description)
 # Change labels
 levels(sample_data(phylo_tissue)$Description) = c("PDA", "Healthy")
-set.seed()
+
 dist <- phyloseq::distance(phylo_tissue, method = "bray")
 perma <- adonis(dist~Description, data = as(sample_data(phylo_tissue), "data.frame"), permutations = 1000)
 perma
